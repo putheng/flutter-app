@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:product/pages/product.dart';
 
 class Products extends StatelessWidget {
   final List<Map<String, dynamic>> products;
@@ -11,7 +10,50 @@ class Products extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(products[index]['image']),
-          Text(products[index]['title']),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  products[index]['title'],
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Oswald',
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0
+                ),
+                Container(
+                  child: Text(
+                    '\$${products[index]['price'].toString()}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).accentColor,
+                    borderRadius: BorderRadius.circular(5.0)
+                  ),
+                  padding: EdgeInsets.all(3.0),
+                  margin: EdgeInsets.only(left: 5.0),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.only(top: 10.0),
+          ),
+          Container(
+            child: Text('Product description'),
+            padding: EdgeInsets.all(5.0),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1.0,
+              ),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+          ),
           ButtonBar(alignment: MainAxisAlignment.center, children: <Widget>[
             FlatButton(
               child: Text('Details'),

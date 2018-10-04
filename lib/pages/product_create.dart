@@ -54,13 +54,6 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
               });
             },
           ),
-          SwitchListTile(
-            value: true,
-            title: Text('Accept Terms'),
-            onChanged: (bool value){
-
-            }
-          ),
           SizedBox(
             height: 10.0,
           ),
@@ -72,7 +65,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
               final Map<String, dynamic> product = {
                 'title': _titleValue,
                 'description': _descriptionValue,
-                'prince': _priceValue,
+                'price': _priceValue,
                 'image': 'assets/food-01.jpg'
               };
               widget.addProduct(product);
